@@ -1,0 +1,41 @@
+{
+   "name": "Mixradio Web Hotkeys",
+   "description": "Add keyboard shortcuts to control Mixrad.io from your browser",
+   "version": "0.1",
+   "manifest_version": 2,
+   "icons": {
+      "128": "icon.png"
+   },
+   "incognito": "split",
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "commands": {
+      "skip-next": {
+         "description": "Next track",
+         "suggested_key": "Alt+Shift+PgDwn"
+      },
+      "play": {
+         "description": "Play",
+         "suggested_key": "Alt+Shift+End"
+      },
+      "pause": {
+         "description": "Pause",
+         "suggested_key": "Alt+Shift+Del"
+      },
+      "like": {
+         "description": "Like track"
+      },
+      "dislike": {
+         "description": "Dislike track"
+      },
+      "pinned": {
+         "description": "Open pinned tab"
+      },
+      "mymix": {
+         "description": "Start Mymix"
+      }
+   },
+   "permissions": [ "https://mixrad.io/*"  ]
+}
