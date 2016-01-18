@@ -1,41 +1,45 @@
 {
-   "name": "Mixradio Web Hotkeys",
-   "description": "Add keyboard shortcuts to control Mixrad.io from your browser",
-   "version": "0.1",
-   "manifest_version": 2,
-   "icons": {
-      "128": "icon.png"
-   },
-   "incognito": "split",
-   "background": {
-      "persistent": false,
-      "scripts": [ "background.js" ]
-   },
-   "commands": {
-      "skip-next": {
-         "description": "Next track",
-         "suggested_key": "Alt+Shift+PgDwn"
-      },
-      "play": {
-         "description": "Play",
-         "suggested_key": "Alt+Shift+End"
-      },
-      "pause": {
-         "description": "Pause",
-         "suggested_key": "Alt+Shift+Del"
-      },
-      "like": {
-         "description": "Like track"
-      },
-      "dislike": {
-         "description": "Dislike track"
-      },
-      "pinned": {
-         "description": "Open pinned tab"
-      },
-      "mymix": {
-         "description": "Start Mymix"
-      }
-   },
-   "permissions": [ "https://mixrad.io/*"  ]
+  "name": "Mixradio Web Hotkeys",
+  "description": "Add keyboard shortcuts to control Mixrad.io from your browser",
+  "version": "0.1.1",
+  "manifest_version": 2,
+  "icons": {
+    "128": "icon.png"
+  },
+  "incognito": "split",
+  "background": {
+    "persistent": false,
+    "scripts": [ "background.js" ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mixrad.io/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "next": {
+      "description": "Next track",
+      "suggested_key": "Alt+Shift+N"
+    },
+    "play-pause": {
+      "description": "Play/Pause",
+      "suggested_key": "Alt+Shift+P"
+    },
+    "like": {
+      "description": "Like track",
+      "suggested_key": "Alt+Shift+L"
+    },
+    "dislike": {
+      "description": "Dislike track",
+      "suggested_key": "Alt+Shift+D"
+    },
+    "pinned": {
+      "description": "Open pinned tab"
+    },
+    "mymix": {
+      "description": "Start Mymix"
+    }
+  },
+  "permissions": [ "https://mixrad.io/*"  ]
 }
