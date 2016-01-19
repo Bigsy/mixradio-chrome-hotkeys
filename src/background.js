@@ -21,12 +21,11 @@ function onCommand(command) {
             {
                 case "play-pause":
                     for (var i = 0; i < tabs.length; i++) {
-                        chrome.tabs.executeScript(tabs[i].id, {file: "content.js"});
                         chrome.tabs.sendMessage(tabs[i].id, {text: "play?"}, function(response) {
                             if (response === null) {
-                                clickElement(tabs, Elements.pause);
-                            } else {
                                 clickElement(tabs, Elements.play);
+                            } else {
+                                clickElement(tabs, Elements.pause);
                             }
                         });
                     }

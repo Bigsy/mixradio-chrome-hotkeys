@@ -14,7 +14,8 @@
   "content_scripts": [
     {
       "matches": ["https://mixrad.io/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
   ],
   "commands": {
@@ -41,5 +42,5 @@
       "description": "Start Mymix"
     }
   },
-  "permissions": [ "https://mixrad.io/*"  ]
+  "permissions": ["https://mixrad.io/*", "tabs"]
 }
