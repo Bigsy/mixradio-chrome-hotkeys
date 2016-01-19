@@ -36,11 +36,14 @@
       "suggested_key": "Alt+Shift+D"
     },
     "pinned": {
-      "description": "Open pinned tab"
+      "description": "Open mixradio in pinned tab"
     },
     "mymix": {
       "description": "Start Mymix"
+    },
+    "current-toast": {
+      "description": "Current track notification"
     }
   },
-  "permissions": ["https://mixrad.io/*", "tabs"]
+  "permissions": ["https://mixrad.io/*", "tabs", "notifications"]
 }

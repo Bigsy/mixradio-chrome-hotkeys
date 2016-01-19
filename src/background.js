@@ -7,6 +7,22 @@ var Elements = {
     mymix: "tile--mymix__description"
 };
 
+var path = chrome.runtime.getURL("icon.png");
+
+function createOptions(text){
+   stext = text.split(/\r?\n/);
+
+    var options =  {
+        type: "basic",
+        title: stext[0],
+        message: stext[1],
+        contextMessage: stext[2],
+        iconUrl: path,
+    }
+
+    return options;
+};
+
 function clickElement(tabs, classname){
     for (var i = 0; i < tabs.length; i++) {
         chrome.tabs.executeScript(tabs[i].id, {code: "document.getElementsByClassName('" + classname + "')[0].click();"});}
@@ -42,10 +58,17 @@ function onCommand(command) {
                 case "mymix":
                     clickElement(tabs, Elements.mymix);
                     break;
+                case "current-toast":
+                    chrome.tabs.sendMessage(tabs[0].id, {text: "currenttrack"}, function(response) {
+                        chrome.notifications.create("id1", createOptions(response), crCallback);
+                    });
+                    break;
                 default:
                     break;
             }}
     });
 };
-
+function crCallback(notID) {
+    console.log("Succesfully created " + notID + " notification");
+}
 chrome.commands.onCommand.addListener(onCommand);
