@@ -49,5 +49,5 @@
       "description": "Current track notification"
     }
   },
-  "permissions": ["https://mixrad.io/*", "tabs", "notifications"]
+  "permissions": ["https://mixrad.io/*", "tabs", "notifications", "https://assets.mixrad.io/*"]
 }

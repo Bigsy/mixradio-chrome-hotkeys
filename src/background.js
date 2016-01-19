@@ -7,19 +7,14 @@ var Elements = {
     mymix: "tile--mymix__description"
 };
 
-var path = chrome.runtime.getURL("icon.png");
-
-function createOptions(text){
-   stext = text.split(/\r?\n/);
-
+function createOptions(opts){
     var options =  {
         type: "basic",
-        title: stext[0],
-        message: stext[1],
-        contextMessage: stext[2],
-        iconUrl: path,
+        title: opts.mix,
+        message: opts.song,
+        contextMessage: opts.artist,
+        iconUrl: opts.img
     }
-
     return options;
 };
 
@@ -33,8 +28,7 @@ function onCommand(command) {
         if (tabs.length === 0 && command === "pinned") {
             chrome.tabs.create({url: 'https://mixrad.io', 'pinned': true});
         } else {
-            switch (command)
-            {
+            switch (command) {
                 case "play-pause":
                     for (var i = 0; i < tabs.length; i++) {
                         chrome.tabs.sendMessage(tabs[i].id, {text: "play?"}, function(response) {
@@ -69,6 +63,5 @@ function onCommand(command) {
     });
 };
 function crCallback(notID) {
-    console.log("Succesfully created " + notID + " notification");
 }
 chrome.commands.onCommand.addListener(onCommand);
