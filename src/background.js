@@ -7,6 +7,15 @@ var Elements = {
     mymix: "tile--mymix__description"
 };
 
+var path = chrome.runtime.getURL("icon.png");
+var options = {
+    type: "basic",
+    title: "Simple Notification",
+    message: "Just a text message and icon",
+    contextMessage: "wibble",
+    iconUrl: path,
+};
+
 function clickElement(tabs, classname){
     for (var i = 0; i < tabs.length; i++) {
         chrome.tabs.executeScript(tabs[i].id, {code: "document.getElementsByClassName('" + classname + "')[0].click();"});}
@@ -45,7 +54,10 @@ function onCommand(command) {
                 default:
                     break;
             }}
+        chrome.notifications.create("id1", options, crCallback);
     });
 };
-
+function crCallback(notID) {
+    console.log("Succesfully created " + notID + " notification");
+}
 chrome.commands.onCommand.addListener(onCommand);

@@ -42,5 +42,5 @@
       "description": "Start Mymix"
     }
   },
-  "permissions": ["https://mixrad.io/*", "tabs"]
+  "permissions": ["https://mixrad.io/*", "notifications", "tabs"]
 }
