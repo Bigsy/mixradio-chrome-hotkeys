@@ -1,7 +1,7 @@
 {
-  "name": "Mixradio Web Hotkeys",
-  "description": "Add keyboard shortcuts to control Mixrad.io from your browser",
-  "version": "0.1.2",
+  "name": "Mixradio Web Player Hotkeys",
+  "description": "Add keyboard shortcuts to control Mixrad.io music player from your browser",
+  "version": "0.1.4",
   "manifest_version": 2,
   "icons": {
     "128": "icon.png"
@@ -25,11 +25,11 @@
   "commands": {
     "next": {
       "description": "Next track",
-      "suggested_key": "Alt+Shift+Period"
+      "suggested_key": "MediaNextTrack"
     },
     "play-pause": {
       "description": "Play/Pause",
-      "suggested_key": "Alt+Shift+Comma"
+      "suggested_key": "MediaPlayPause"
     },
     "like": {
       "description": "Like track",
