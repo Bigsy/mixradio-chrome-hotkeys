@@ -1,10 +1,10 @@
 var Elements = {
-    play: "button-control__button button-control player__play",
-    pause: "button-control__button button-control player__pause",
-    next: "button-control__button button-control player__skip-next",
-    like: "button-control__button button-control player__like",
-    dislike: "button-control__button button-control player__dislike",
-    mymix: "tile--mymix__description"
+    play: "button-control player__play player-control",
+    pause: "button-control player__pause player-control",
+    next: "button-control player__skip-next player-control",
+    like: "button-control player__like player-control",
+    dislike: "button-control player__dislike player-control",
+    mymix: "tile mymix-tile has-tile-play-button"
 };
 
 function createOptions(opts){
