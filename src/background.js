@@ -20,7 +20,6 @@ function createOptions(opts){
 
 function clickElement(tabs, element){
     for (var i = 0; i < tabs.length; i++) {
-        console.log("$(\"" + element + "\").click();")
         chrome.tabs.executeScript(tabs[i].id, {code: "$(\"" + element + "\").click();"});}
 }
 
