@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "matches": ["https://mixrad.io/*"],
-      "js": ["content.js"],
+      "js": ["content.js", "jquery-2.2.0.min.js"],
       "run_at": "document_end"
     }
   ],
@@ -49,5 +49,5 @@
       "description": "Current playing track popup"
     }
   },
-  "permissions": ["https://mixrad.io/*", "tabs", "notifications", "https://assets.mixrad.io/*"]
+  "permissions": ["https://mixrad.io/*", "notifications", "https://assets.mixrad.io/*"]
 }

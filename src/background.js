@@ -1,10 +1,10 @@
 var Elements = {
-    play: "button-control player__play player-control",
-    pause: "button-control player__pause player-control",
-    next: "button-control player__skip-next player-control",
-    like: "button-control player__like player-control",
-    dislike: "button-control player__dislike player-control",
-    mymix: "tile mymix-tile has-tile-play-button"
+    play: "[type=button][title='Play this track']",
+    pause: "[type=button][title='Pause this track']",
+    next: "[type=button][title='Skip forward']",
+    like: "[type=button][title='Like this track']",
+    dislike: "[type=button][title='Dislike this track']",
+    mymix: "[data-reactid$='$mymix\\.0']"
 };
 
 function createOptions(opts){
@@ -18,9 +18,10 @@ function createOptions(opts){
     return options;
 };
 
-function clickElement(tabs, classname){
+function clickElement(tabs, element){
     for (var i = 0; i < tabs.length; i++) {
-        chrome.tabs.executeScript(tabs[i].id, {code: "document.getElementsByClassName('" + classname + "')[0].click();"});}
+        console.log("$(\"" + element + "\").click();")
+        chrome.tabs.executeScript(tabs[i].id, {code: "$(\"" + element + "\").click();"});}
 }
 
 function onCommand(command) {
